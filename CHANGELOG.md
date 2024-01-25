@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/michael-land/extract-modified-properties/compare/v1.0.1...v1.0.2) (2024-01-25)
+
+
+### Bug Fixes
+
+* correct package.json index file names ([18c6089](https://github.com/michael-land/extract-modified-properties/commit/18c6089e38912940fe69ab2fa344f66b9d76109e))
+
 ## [1.0.1](https://github.com/michael-land/extract-modified-properties/compare/v1.0.0...v1.0.1) (2024-01-25)
 
 
