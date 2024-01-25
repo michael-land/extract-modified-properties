@@ -1,0 +1,63 @@
+{
+  "name": "extract-modified-properties",
+  "version": "0.0.0",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michael-land/extract-modified-properties.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Michael Li",
+    "email": "michael.li@michael.land",
+    "url": "https://michael.land"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "test": "vitest run --passWithNoTests",
+    "test:cov": "vitest run --coverage",
+    "test:debug": "vitest --inspect-brk --inspect --logHeapUsage --threads=false",
+    "test:e2e": "vitest run --config ./vitest.config.e2e.ts",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "18.4.2",
+    "@commitlint/config-conventional": "18.4.2",
+    "@commitlint/lint": "18.4.2",
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/git": "10.0.1",
+    "@tsconfig/node18": "18.2.2",
+    "@tsconfig/strictest": "2.0.2",
+    "@types/eslint": "8.56.2",
+    "@types/node": "20.11.6",
+    "@typescript-eslint/eslint-plugin": "6.19.1",
+    "@typescript-eslint/parser": "6.19.1",
+    "@vitest/coverage-v8": "1.2.1",
+    "eslint": "8.56.0",
+    "eslint-plugin-node": "11.1.0",
+    "husky": "8.0.3",
+    "prettier": "3.2.4",
+    "prettier-plugin-organize-imports": "3.2.4",
+    "prettier-plugin-packagejson": "2.4.9",
+    "rimraf": "5.0.5",
+    "semantic-release": "23.0.0",
+    "tsup": "8.0.1",
+    "typescript": "5.3.3",
+    "vitest": "1.2.1"
+  },
+  "packageManager": "pnpm@8.14.1",
+  "engines": {
+    "node": "20.x"
+  }
+}
