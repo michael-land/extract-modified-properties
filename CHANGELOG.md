@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/michael-land/extract-modified-properties/compare/v1.0.0...v1.0.1) (2024-01-25)
+
+
+### Bug Fixes
+
+* add files to package.json ([8f9ee21](https://github.com/michael-land/extract-modified-properties/commit/8f9ee217dacd23497984adf95293b64a473bbaa9))
+
 # 1.0.0 (2024-01-25)
 
 
