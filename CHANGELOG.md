@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/michael-land/extract-modified-properties/compare/v1.0.3...v1.0.4) (2024-01-26)
+
+
+### Bug Fixes
+
+* special handleing for underfined values ([1672483](https://github.com/michael-land/extract-modified-properties/commit/167248368ddac5c1b76598593ebbb4d7b7659310))
+
 ## [1.0.3](https://github.com/michael-land/extract-modified-properties/compare/v1.0.2...v1.0.3) (2024-01-26)
 
 
