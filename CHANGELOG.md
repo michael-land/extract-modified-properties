@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/michael-land/extract-modified-properties/compare/v1.0.2...v1.0.3) (2024-01-26)
+
+
+### Bug Fixes
+
+* allow compare date with isostring ([c59213e](https://github.com/michael-land/extract-modified-properties/commit/c59213ea42943c1106ddc359b6c7e781cfcd1408))
+
 ## [1.0.2](https://github.com/michael-land/extract-modified-properties/compare/v1.0.1...v1.0.2) (2024-01-25)
 
 
