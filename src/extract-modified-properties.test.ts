@@ -3,6 +3,116 @@ import { extractModifiedProperties } from './extract-modified-properties.js';
 
 describe('diff function', () => {
   it('should return null when comparing two equal objects', () => {
+    const prev = {
+      id: '152550cd-32ad-4757-8d77-64864530d46b',
+      createdAt: '2024-01-26T03:04:43.404Z',
+      updatedAt: '2024-01-26T03:04:43.404Z',
+      invoicedAt: '2024-01-25T14:00:29.553Z',
+      archivedAt: null,
+      archivedReason: null,
+      tenantId: 'org_2bL6glTOpGt57zD21o0th8Xfhks',
+      accountId: '5735ce3b-d017-4d27-8539-40b07a0d84e4',
+      marketplaceId: '2c1e196c-9b9d-462c-bcb1-9407bafa07ed',
+      currencyId: 'USD',
+      externalId: '16-11093-85251',
+      externalUrl: 'https://www.ebay.com/mesh/ord/details?orderid=16-11093-85251',
+      externalReference: '7909',
+      externalCreatedAt: '2024-01-25T14:00:30.000Z',
+      externalUpdatedAt: '2024-01-25T17:54:59.000Z',
+      type: 'RETAIL',
+      status: 'FULFILLED',
+      channel: 'WEB',
+      traderId: '94a09818-8884-4f80-a7fe-ade4380da981',
+      traderCompanyId: null,
+      traderName: 'Jason Moore',
+      traderNote: 'Need it as fast as you can get it to me… Thanks!',
+      traderEmail: '6a5113db4e5dc4f9f949@members.ebay.com',
+      traderPhone: '5072620930',
+      traderOrderNumber: null,
+      paymentTerm: 'NONE',
+      paymentStatus: 'FULLY_PAID',
+      paymentMethod: 'PLATFORM',
+      paymentPaidAt: '2024-01-25T14:00:29.553Z',
+      paymentTaxRemitter: 'PLATFORM',
+      amountItemsPrice: 2299,
+      amountItemsTax: 170,
+      amountItemsDiscount: 0,
+      amountItemsShippingPrice: 0,
+      amountItemsShippingTax: 0,
+      amountItemsShippingDiscount: 0,
+      amountItemsHandlingPrice: 0,
+      amountItemsHandlingTax: 0,
+      amountItemsHandlingDiscount: 0,
+      amountOrderShippingPrice: 0,
+      amountOrderShippingTax: 0,
+      amountOrderShippingDiscount: 0,
+      amountOrderHandlingPrice: 0,
+      amountOrderHandlingTax: 0,
+      amountOrderHandlingDiscount: 0,
+      amountOrderTax: 0,
+      amountOrderDiscount: 0,
+      amountOrderTotal: 2469,
+      isPremium: false,
+      isBusiness: false,
+      isGlobalProgram: false,
+    };
+    const next = {
+      id: '152550cd-32ad-4757-8d77-64864530d46b',
+      tenantId: 'org_2bL6glTOpGt57zD21o0th8Xfhks',
+      accountId: '5735ce3b-d017-4d27-8539-40b07a0d84e4',
+      createdAt: undefined,
+      updatedAt: undefined,
+      externalId: '16-11093-85251',
+      externalCreatedAt: '2024-01-25T14:00:30.000Z',
+      externalUpdatedAt: '2024-01-25T17:54:59.000Z',
+      externalUrl: 'https://www.ebay.com/mesh/ord/details?orderid=16-11093-85251',
+      externalReference: '7909',
+      marketplaceId: '2c1e196c-9b9d-462c-bcb1-9407bafa07ed',
+      amountItemsDiscount: 0,
+      amountItemsHandlingDiscount: 0,
+      amountItemsHandlingPrice: 0,
+      amountItemsHandlingTax: 0,
+      amountItemsPrice: 2299,
+      amountItemsShippingDiscount: 0,
+      amountItemsShippingPrice: 0,
+      amountItemsShippingTax: 0,
+      amountItemsTax: 170,
+      amountOrderDiscount: 0,
+      amountOrderHandlingDiscount: 0,
+      amountOrderHandlingPrice: 0,
+      amountOrderHandlingTax: 0,
+      amountOrderShippingDiscount: 0,
+      amountOrderShippingPrice: 0,
+      amountOrderShippingTax: 0,
+      amountOrderTax: 0,
+      amountOrderTotal: 2469,
+      archivedAt: null,
+      archivedReason: null,
+      channel: 'WEB',
+      currencyId: 'USD',
+      invoicedAt: '2024-01-25T14:00:29.553Z',
+      isBusiness: false,
+      isGlobalProgram: false,
+      isPremium: false,
+      paymentMethod: 'PLATFORM',
+      paymentPaidAt: '2024-01-25T14:00:29.553Z',
+      paymentStatus: 'FULLY_PAID',
+      paymentTaxRemitter: 'PLATFORM',
+      paymentTerm: 'NONE',
+      status: 'FULFILLED',
+      traderCompanyId: null,
+      traderEmail: '6a5113db4e5dc4f9f949@members.ebay.com',
+      traderId: '94a09818-8884-4f80-a7fe-ade4380da981',
+      traderName: 'Jason Moore',
+      traderNote: 'Need it as fast as you can get it to me… Thanks!',
+      traderOrderNumber: null,
+      traderPhone: '5072620930',
+      type: 'RETAIL',
+    };
+    expect(extractModifiedProperties({ prev, next })).toBeNull();
+  });
+
+  it('should return null when comparing two equal objects', () => {
     const prev = { name: 'John', age: 30 };
     const next = { name: 'John', age: 30 };
     expect(extractModifiedProperties({ prev, next })).toBeNull();
@@ -147,12 +257,12 @@ describe('diff function with keys parameter', () => {
     expect(extractModifiedProperties({ prev, next, keys })).toEqual(expected);
   });
 
-  it('should return undefined for a removed key specified in keys', () => {
+  it('should return null for a removed key specified in keys', () => {
     const prev = { name: 'John', age: 30 };
     const next = { age: 30 };
     const keys = ['name'] as const;
-    const expected = { name: undefined };
-    expect(extractModifiedProperties({ prev, next, keys })).toEqual(expected);
+
+    expect(extractModifiedProperties({ prev, next, keys })).toBeNull();
   });
 
   it('should handle a key specified in keys not existing in both objects', () => {

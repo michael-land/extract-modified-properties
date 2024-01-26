@@ -15,6 +15,9 @@ export function extractModifiedProperties<Prev extends Record<string, any>, Next
   const keysToCompare = keys?.length ? new Set(keys) : new Set([...prevKeysSet, ...nextKeysSet]);
 
   for (const key of keysToCompare) {
+    // if the value is undefined, it means we don't want to update the value
+    if (next[key] === undefined) continue;
+
     if (!isEqual(prev[key], next[key])) {
       changes[key] = next[key];
     }
