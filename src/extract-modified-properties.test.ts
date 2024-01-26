@@ -26,6 +26,12 @@ describe('diff function', () => {
     expect(extractModifiedProperties({ prev, next })).toBeNull();
   });
 
+  it('should return null when comparing two equal dates (date and ISOString)', () => {
+    const prev = { date: new Date('2022-01-01') };
+    const next = { date: new Date('2022-01-01').toISOString() };
+    expect(extractModifiedProperties({ prev, next })).toBeNull();
+  });
+
   it('should return null when comparing two equal array', () => {
     const prev = { array: [1, 2, 3] };
     const next = { array: [1, 2, 3] };

@@ -1,8 +1,8 @@
 export function isEqual(value1: any, value2: any): boolean {
   if (Array.isArray(value1) && Array.isArray(value2)) {
     return isArrayEqual(value1, value2);
-  } else if (value1 instanceof Date && value2 instanceof Date) {
-    return isDateEqual(value1, value2);
+  } else if (value1 instanceof Date || value2 instanceof Date) {
+    return isDateEqual(new Date(value1), new Date(value2));
   } else {
     return value1 === value2;
   }
